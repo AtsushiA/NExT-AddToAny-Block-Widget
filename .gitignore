@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Claude Code settings
+.claude/
+
+# Build output (uncomment if you want to commit build files)
+# build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Package files
+*.zip
+
+# Local environment
+.env
+.env.local
+
+# WordPress specific
+*.sql
+*.sql.gz

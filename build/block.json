@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "next/addtoany-block",
+  "version": "0.1.0",
+  "title": "AddToAny Widget",
+  "category": "widgets",
+  "icon": "share",
+  "description": "AddToAnyの共有ボタンを表示します",
+  "keywords": [
+    "addtoany",
+    "share",
+    "social",
+    "widget"
+  ],
+  "example": {},
+  "attributes": {
+    "buttonSize": {
+      "type": "number",
+      "default": 32
+    },
+    "buttonStyle": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "floating",
+        "none"
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "left",
+      "center",
+      "right",
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "next-addtoany-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

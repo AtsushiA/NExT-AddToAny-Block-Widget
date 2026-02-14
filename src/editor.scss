@@ -1,0 +1,50 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-telex-addtoany-block {
+	.addtoany-preview {
+		text-align: center;
+		padding: 20px;
+		
+		.a2a_kit {
+			display: inline-flex;
+			gap: 8px;
+			align-items: center;
+			margin-bottom: 10px;
+			
+			a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: auto;
+				height: auto;
+				text-decoration: none;
+				color: #555;
+				transition: color 0.2s;
+				
+				&:hover {
+					color: #0073aa;
+				}
+				
+				.dashicons {
+					width: auto;
+					height: auto;
+				}
+			}
+		}
+		
+		.addtoany-preview-note {
+			font-size: 12px;
+			color: #666;
+			font-style: italic;
+			margin-top: 10px;
+		}
+	}
+	
+	.components-placeholder {
+		min-height: 150px;
+	}
+}
