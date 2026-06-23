@@ -7,10 +7,12 @@
  * @package NextAddToAnyBlock
  */
 
+defined( 'ABSPATH' ) || exit;
+
 // Check if the AddToAny plugin is active.
 if ( ! class_exists( 'A2A_SHARE_SAVE_Widget' ) ) {
 	?>
-	<div <?php echo get_block_wrapper_attributes(); ?>>
+	<div <?php echo get_block_wrapper_attributes(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() returns an escaped attribute string. */ ?>>
 		<p style="padding: 1em; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">
 			<?php esc_html_e( 'AddToAnyプラグインが有効化されていません。このブロックを表示するには、AddToAnyプラグインをインストールして有効化してください。', 'next-addtoany-block' ); ?>
 		</p>
@@ -38,7 +40,7 @@ if ( 'default' !== $button_style ) {
 }
 
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'addtoany-share-buttons' ) ); ?>>
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'addtoany-share-buttons' ) ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() returns an escaped attribute string. */ ?>>
 	<?php
 	// Create an instance of the AddToAny widget.
 	$widget = new A2A_SHARE_SAVE_Widget();
