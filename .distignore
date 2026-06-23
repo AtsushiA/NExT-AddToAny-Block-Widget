@@ -1,0 +1,28 @@
+# 配布 zip (wp-scripts plugin-zip / npm run plugin-zip) から除外するもの。
+# build/ は本番ランタイムなので除外しない。
+
+/.git
+/.github
+/.husky
+/.claude
+/node_modules
+/vendor
+/tests
+/src
+/bin
+/.wp-env.json
+/.wp-env.override.json
+/debug.log
+/db.sql
+/package.json
+/package-lock.json
+/composer.json
+/composer.lock
+/phpcs.xml.dist
+/phpunit.xml.dist
+/.gitignore
+/.distignore
+/.editorconfig
+/artefact.xml
+/README.md
+*.zip

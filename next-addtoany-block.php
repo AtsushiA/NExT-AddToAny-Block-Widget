@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       NExT AddToAny Block Widget
  * Description:       AddToAnyプラグインのウィジェット機能をブロックエディタで使用できるようにします。
- * Version:           0.1.0
+ * Version:           0.2.0
  * Requires at least: 6.1
  * Requires PHP:      7.4
  * Author:            NExT-Season - WordPress Telex

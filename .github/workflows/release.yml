@@ -1,0 +1,71 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+# WordPress プラグインの slug。
+# フォルダ名 (NExT-addtoany-block) / GitHub リポジトリ名 (NExT-AddToAny-Block-Widget) と
+# メインファイル名 (next-addtoany-block.php) が異なるため、basename ではなく明示指定する。
+env:
+  PLUGIN_SLUG: next-addtoany-block
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: meta
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+
+      - name: Verify version matches plugin header
+        run: |
+          HEADER_VERSION=$(grep -oP 'Version:\s*\K[0-9]+\.[0-9]+\.[0-9]+' "${PLUGIN_SLUG}.php")
+          if [ "$HEADER_VERSION" != "${{ steps.meta.outputs.version }}" ]; then
+            echo "::error::Tag version (${{ steps.meta.outputs.version }}) does not match plugin header version ($HEADER_VERSION)"
+            exit 1
+          fi
+
+      - name: Build plugin zip
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.husky' \
+            --exclude='.claude' \
+            --exclude='node_modules' \
+            --exclude='vendor' \
+            --exclude='tests' \
+            --exclude='src' \
+            --exclude='bin' \
+            --exclude='.wp-env.json' \
+            --exclude='.wp-env.override.json' \
+            --exclude='debug.log' \
+            --exclude='db.sql' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='composer.json' \
+            --exclude='composer.lock' \
+            --exclude='phpcs.xml.dist' \
+            --exclude='phpunit.xml.dist' \
+            --exclude='.gitignore' \
+            --exclude='.distignore' \
+            --exclude='artefact.xml' \
+            --exclude='README.md' \
+            --exclude='*.zip' \
+            ./ "${PLUGIN_SLUG}/"
+          zip -r "${PLUGIN_SLUG}-${VERSION}.zip" "${PLUGIN_SLUG}/"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.PLUGIN_SLUG }}-${{ steps.meta.outputs.version }}.zip
+          generate_release_notes: true

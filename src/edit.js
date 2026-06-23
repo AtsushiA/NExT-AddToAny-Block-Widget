@@ -49,17 +49,17 @@ export default function Edit( { attributes, setAttributes } ) {
 	}, [] );
 
 	const buttonStyleOptions = [
-		{ label: __( 'デフォルト', 'telex-addtoany-block' ), value: 'default' },
-		{ label: __( 'フローティング', 'telex-addtoany-block' ), value: 'floating' },
-		{ label: __( 'スタイルなし', 'telex-addtoany-block' ), value: 'none' },
+		{ label: __( 'デフォルト', 'next-addtoany-block' ), value: 'default' },
+		{ label: __( 'フローティング', 'next-addtoany-block' ), value: 'floating' },
+		{ label: __( 'スタイルなし', 'next-addtoany-block' ), value: 'none' },
 	];
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'ボタン設定', 'telex-addtoany-block' ) }>
+				<PanelBody title={ __( 'ボタン設定', 'next-addtoany-block' ) }>
 					<RangeControl
-						label={ __( 'ボタンサイズ', 'telex-addtoany-block' ) }
+						label={ __( 'ボタンサイズ', 'next-addtoany-block' ) }
 						value={ buttonSize }
 						onChange={ ( value ) => setAttributes( { buttonSize: value } ) }
 						min={ 16 }
@@ -67,7 +67,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						step={ 2 }
 					/>
 					<SelectControl
-						label={ __( 'ボタンスタイル', 'telex-addtoany-block' ) }
+						label={ __( 'ボタンスタイル', 'next-addtoany-block' ) }
 						value={ buttonStyle }
 						options={ buttonStyleOptions }
 						onChange={ ( value ) => setAttributes( { buttonStyle: value } ) }
@@ -78,14 +78,14 @@ export default function Edit( { attributes, setAttributes } ) {
 				{ ! isAddToAnyActive ? (
 					<Placeholder
 						icon={ share }
-						label={ __( 'AddToAny Widget', 'telex-addtoany-block' ) }
-						instructions={ __( 'AddToAnyプラグインがインストールされていません。このブロックを使用するには、AddToAnyプラグインを有効化してください。', 'telex-addtoany-block' ) }
+						label={ __( 'AddToAny Widget', 'next-addtoany-block' ) }
+						instructions={ __( 'AddToAnyプラグインがインストールされていません。このブロックを使用するには、AddToAnyプラグインを有効化してください。', 'next-addtoany-block' ) }
 					/>
 				) : (
 					<Placeholder
 						icon={ share }
-						label={ __( 'AddToAny Widget', 'telex-addtoany-block' ) }
-						instructions={ __( '共有ボタンがここに表示されます', 'telex-addtoany-block' ) }
+						label={ __( 'AddToAny Widget', 'next-addtoany-block' ) }
+						instructions={ __( '共有ボタンがここに表示されます', 'next-addtoany-block' ) }
 					>
 						<div className="addtoany-preview">
 							<div 
@@ -106,7 +106,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								</a>
 							</div>
 							<p className="addtoany-preview-note">
-								{ __( '※ プレビュー表示です。実際のボタンはフロントエンドで表示されます。', 'telex-addtoany-block' ) }
+								{ __( '※ プレビュー表示です。実際のボタンはフロントエンドで表示されます。', 'next-addtoany-block' ) }
 							</p>
 						</div>
 					</Placeholder>

@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+vendor/
 
 # Claude Code settings
 .claude/
@@ -33,3 +34,11 @@ npm-debug.log*
 # WordPress specific
 *.sql
 *.sql.gz
+
+# wp-env
+.wp-env.override.json
+
+# Test cache
+.phpunit.result.cache
+test-results/
+playwright-report/
