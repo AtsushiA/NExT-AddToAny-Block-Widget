@@ -1,6 +1,6 @@
 {
     "name": "next-addtoany-block",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "AddToAnyの共有ボタンを表示します",
     "author": "telex block authoring tool",
     "license": "GPL-2.0-or-later",
