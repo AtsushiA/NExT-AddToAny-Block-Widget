@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<ruleset name="NExT AddToAny Block Widget">
+    <description>Coding standards for NExT AddToAny Block Widget.</description>
+
+    <!-- 検査対象 -->
+    <file>./next-addtoany-block.php</file>
+    <file>./src/render.php</file>
+
+    <!-- 除外 -->
+    <exclude-pattern>./vendor/*</exclude-pattern>
+    <exclude-pattern>./node_modules/*</exclude-pattern>
+    <exclude-pattern>./build/*</exclude-pattern>
+    <exclude-pattern>./tests/*</exclude-pattern>
+
+    <!-- PHP ファイルのみ、進捗とソースを表示 -->
+    <arg name="extensions" value="php"/>
+    <arg value="ps"/>
+    <arg name="colors"/>
+
+    <!-- WordPress Coding Standards -->
+    <rule ref="WordPress"/>
+
+    <!-- get_block_wrapper_attributes() は既にエスケープ済みの文字列を返すため、安全な出力として扱う -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customAutoEscapedFunctions" type="array">
+                <element value="get_block_wrapper_attributes"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- render.php のテンプレート変数は描画コールバック内でスコープされるため、グローバル変数の誤検出を除外 -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound">
+        <exclude-pattern>*/render.php</exclude-pattern>
+    </rule>
+
+    <!-- PHP 互換性チェック -->
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- サポート対象 PHP バージョン（プラグインヘッダー Requires PHP: 7.4 に合わせる） -->
+    <config name="testVersion" value="7.4-"/>
+
+    <!-- テキストドメイン -->
+    <config name="text_domain" value="next-addtoany-block"/>
+
+    <!-- グローバル関数のプレフィックス -->
+    <config name="prefixes" value="next_addtoany_block"/>
+
+    <!-- 最低 WP バージョン（プラグインヘッダー Requires at least: 6.1 に合わせる） -->
+    <config name="minimum_wp_version" value="6.1"/>
+</ruleset>

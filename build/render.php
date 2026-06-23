@@ -1,45 +1,49 @@
 <?php
 /**
+ * Server-side rendering of the next/addtoany-block block.
+ *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
+ *
+ * @package NextAddToAnyBlock
  */
 
-// Check if AddToAny plugin is active
+// Check if the AddToAny plugin is active.
 if ( ! class_exists( 'A2A_SHARE_SAVE_Widget' ) ) {
 	?>
 	<div <?php echo get_block_wrapper_attributes(); ?>>
 		<p style="padding: 1em; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">
-			<?php esc_html_e( 'AddToAnyプラグインが有効化されていません。このブロックを表示するには、AddToAnyプラグインをインストールして有効化してください。', 'telex-addtoany-block' ); ?>
+			<?php esc_html_e( 'AddToAnyプラグインが有効化されていません。このブロックを表示するには、AddToAnyプラグインをインストールして有効化してください。', 'next-addtoany-block' ); ?>
 		</p>
 	</div>
 	<?php
 	return;
 }
 
-$button_size = isset( $attributes['buttonSize'] ) ? absint( $attributes['buttonSize'] ) : 32;
+$button_size  = isset( $attributes['buttonSize'] ) ? absint( $attributes['buttonSize'] ) : 32;
 $button_style = isset( $attributes['buttonStyle'] ) ? sanitize_text_field( $attributes['buttonStyle'] ) : 'default';
 
-// Build AddToAny widget instance
+// Build the AddToAny widget instance.
 $instance = array(
 	'title' => '',
 );
 
-// Apply button size
-if ( $button_size !== 32 ) {
+// Apply the button size.
+if ( 32 !== $button_size ) {
 	$instance['button_size'] = $button_size;
 }
 
-// Apply button style
-if ( $button_style !== 'default' ) {
+// Apply the button style.
+if ( 'default' !== $button_style ) {
 	$instance['button_style'] = $button_style;
 }
 
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'addtoany-share-buttons' ) ); ?>>
 	<?php
-	// Create an instance of the AddToAny widget
+	// Create an instance of the AddToAny widget.
 	$widget = new A2A_SHARE_SAVE_Widget();
-	
-	// Output the widget
+
+	// Output the widget.
 	$widget->widget(
 		array(
 			'before_widget' => '<div class="addtoany-widget-container">',
