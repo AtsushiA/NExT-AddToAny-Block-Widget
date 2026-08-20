@@ -4,7 +4,7 @@
 Contributors:      WordPress Telex
 Tags:              block, addtoany, social sharing, widget
 Tested up to:      6.8
-Stable tag:        0.2.0
+Stable tag:        0.2.1
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,10 @@ AddToAnyプラグインの設定に基づいた共有ボタンが表示されま
 
 == Changelog ==
 
+= 0.2.1 =
+* ビルドに block.json / render.php が含まれず、ブロックエディタにブロックが表示されない不具合を修正
+* ブロックのCSSクラス名が実際の登録名と一致せず、スタイルが適用されない不具合を修正
+
 = 0.2.0 =
 * テキストドメインの不整合を修正（telex-addtoany-block → next-addtoany-block）
 * CI（GitHub Actions: phpcs / PHPUnit / Plugin Check）とタグリリースの自動化を追加
@@ -70,6 +74,9 @@ AddToAnyプラグインの設定に基づいた共有ボタンが表示されま
 * ボタンサイズとスタイルのカスタマイズオプション
 
 == Upgrade Notice ==
+
+= 0.2.1 =
+ブロックがエディタに表示されない不具合の修正です。更新を推奨します。
 
 = 0.2.0 =
 不具合修正（テキストドメイン）と開発・リリース環境の整備を含む更新です。

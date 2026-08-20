@@ -52,6 +52,7 @@ jobs:
             --exclude='db.sql' \
             --exclude='package.json' \
             --exclude='package-lock.json' \
+            --exclude='webpack.config.js' \
             --exclude='composer.json' \
             --exclude='composer.lock' \
             --exclude='phpcs.xml.dist' \
