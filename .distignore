@@ -16,6 +16,7 @@
 /db.sql
 /package.json
 /package-lock.json
+/webpack.config.js
 /composer.json
 /composer.lock
 /phpcs.xml.dist
